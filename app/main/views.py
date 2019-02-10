@@ -5,4 +5,4 @@ from . import main
 def index():
 
     title = 'Home Page - Get The latest Pitch stories'
-    return render_template('index.html',title = title, article=news_article)
+    return render_template('index.html',title = title)
