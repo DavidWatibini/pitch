@@ -1,5 +1,6 @@
 <div class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
+    <br>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -9,19 +10,25 @@
       </button>
       <a class="navbar-brand" href="/"> PITCHER</a>
     </div>
-    <br>
-    <br>
-    <br>
-
+    <ul class="nav navbar-nav navbar-right">
+      {% if current_user.is_authenticated %}
+      <li style="color:white;padding:15px;">{{current_user.username}}</li>
+      <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+      {% else %}
+      <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+      {%endif%}
+    </ul>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/register">register</a></li>
-        <li><a href="/">pickup lines</a></li>
-        <li><a href="/">interview pitch</a></li>
-        <li><a href="/">product pitch</a></li>
-        <li><a href="/">promotion pitch</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/">INTERVIEW PITCH</a></li>
+        <li><a href="/">PRODUCT PITCH</a></li>
+        <li><a href="/">PROMOTION PITCH</a></li>
+        <li><a href="/">PICK UP LINES</a></li>
+        <li><a href="/">STAND UP COMEDIES</a></li>
 
     </div>
+    <br>
 
   </div>
 </div>
