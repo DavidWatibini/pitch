@@ -46,3 +46,27 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+class Feedback:
+
+    all_feedback = []
+
+    def __init__(self,username,profile_pic_path,email,feedback):
+
+        self.username = username
+        self.profile_pic_path = profile_pic_path
+        self.email = email
+        self.feedback = feedback
+
+    def save_feedback(self):
+        Feedback.all_feedbacks.append(self)
+
+    @classmethod
+    def clear_feedbacks(cls):
+        Feedback.all_feedbacks.clear()
+
+    # @classmethod
+    # def Display_feedbacks(cls):
+    #     response = []
+    #     response.append(feedback)
+    #     return response

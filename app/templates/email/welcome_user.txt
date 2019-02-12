@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Thank you for registering to Moringa's number one pitch site, Picher!!
+Its your time to explore and perfect your pitching skills.
+Enjoy
