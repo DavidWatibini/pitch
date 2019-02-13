@@ -54,6 +54,35 @@ def new_feedback(id):
 
 # product
 @main.route('/product', methods = ['GET','POST'])
+@login_required
 def product():
-    product_pitch=Pitch.query.filter_by(category="PROMOTION")
+    product_pitch=Pitch.query.filter_by(category="PRODUCT")
     return render_template('product.html', product_pitch = product_pitch)
+
+# pick_Up
+@main.route('/pick_up', methods = ['GET','POST'])
+@login_required
+def pick():
+    pick_Up=Pitch.query.filter_by(category="PICK-UP")
+    return render_template('pick_up.html', pick_Up = pick_Up)
+
+# stand up comedy
+@main.route('/stand_up_comedy', methods = ['GET','POST'])
+@login_required
+def stand():
+    stand_Up=Pitch.query.filter_by(category="COMEDY")
+    return render_template('stand_up_comedy.html', stand_Up = stand_Up)
+
+# PROMOTION
+@main.route('/promotion', methods = ['GET','POST'])
+@login_required
+def promotion():
+    promotion_pitch=Pitch.query.filter_by(category="PROMOTION")
+    return render_template('promotion.html', promotion_pitch = promotion_pitch)
+
+# INTERVIEW
+@main.route('/interview', methods = ['GET','POST'])
+@login_required
+def interview():
+    interview_pitch=Pitch.query.filter_by(category="INTERVIEW")
+    return render_template('interview.html', interview_pitch = interview_pitch)

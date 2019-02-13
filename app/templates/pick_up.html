@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<h1>Pick-Up Pitches</h1>
+{% if pick_Up %}
+{% for pitch in pick_Up %}
+
+<p>{{pitch.body}}</p>
+<p>By:{{pitch.post}}</p>
+<p>{{pitch.date_posted}}</p>
+
+{% endfor %}
+<a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+
+{% else%}
+<h3 class="text-center">No pitches yet</h3>
+
+
+<a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+{% endif %}
+
+{% endblock%}
