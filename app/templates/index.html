@@ -2,6 +2,11 @@
 
 {% block content %}
 
-<a href="/product"><h3>asfgdhfjkgvjc</h3></a>
-
+{% for pitch in index %}
+  <h3>Category: {{pitch.category}}</h3>
+  {{pitch.body}}</H3>
+  <p>By:{{pitch.post}}</p>
+  <p>Posted at {{pitch.date_posted}}</p>
+  <a href="/feedback/4">leave feedback</a>
+{% endfor %}
 {%endblock%}

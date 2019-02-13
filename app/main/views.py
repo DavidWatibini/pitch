@@ -8,9 +8,14 @@ from .. import db
 # landing
 @main.route('/')
 def index():
+    '''
+    View root page function that returns index page and its data
+    '''
+    title = 'Pitcher'
 
-    title = 'Home Page - Get The latest Pitch stories'
-    return render_template('index.html',title = title)
+    index=Pitch.query.all()
+
+    return render_template('index.html', title = title, index = index)
 
 # post pitch
 @main.route('/new_pitch', methods = ['GET','POST'])

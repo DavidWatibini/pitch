@@ -2,12 +2,14 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
+<h1>Product Pitches</h1>
 {% if product_pitch %}
-{% for product_item in product_pitch %}
+{% for pitch in product_pitch %}
 
-{{product_item.body}}
-By:{{product_item.post}}
-<p>{{product_item.date_posted}}</p>
+<h1>Product Pitches</h1>
+<p>{{pitch.body}}</p>
+<p>By:{{pitch.post}}</p>
+<p>{{pitch.date_posted}}</p>
 
 {% endfor %}
 <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
