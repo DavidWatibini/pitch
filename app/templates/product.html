@@ -1,3 +1,22 @@
-<h2>Product Pitches</h2>
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
 
-<a class="" href="/pitch/feedback/new "> Write a new feedback</a>
+{% if product_pitch %}
+{% for product_item in product_pitch %}
+
+{{product_item.body}}
+By:{{product_item.post}}
+<p>{{product_item.date_posted}}</p>
+
+{% endfor %}
+<a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+
+{% else%}
+<h3 class="text-center">No pitches yet</h3>
+
+
+<a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+{% endif %}
+
+{% endblock%}
