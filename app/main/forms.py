@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField
+from wtforms import StringField,TextAreaField,SubmitField,SelectField
 from wtforms.validators import Required
 
 class FeedbackForm(FlaskForm):
@@ -10,6 +10,14 @@ class FeedbackForm(FlaskForm):
 
     submit = SubmitField('Submit')
 
-class UpdateProfile(FlaskForm):
-    bio = TextAreaField('Tell us about you.',validators = [Required()])
-    submit = SubmitField('Submit')
+
+class PitchForm(FlaskForm):
+    post = StringField('Your name',validators=[Required()])
+    body = TextAreaField('Pitch')
+    category = SelectField('Pick Category',
+                            choices=[('PRODUCT', 'PRODUCT'),
+                                    ('INTERVIEW', 'INTERVIEW'),
+                                    ('PICK-UP', 'PICK-UP'),
+                                    ('PROMOTION', 'PROMOTION')],
+                            validators=[Required()])
+    submit = SubmitField('Pitch')
