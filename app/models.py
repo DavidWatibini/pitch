@@ -70,7 +70,7 @@ class Feedback(UserMixin,db.Model):
     __tablename__ = 'feedbacks'
 
     id = db.Column(db.Integer, primary_key=True)
-    poster = db.Column(db.String(255))
+    title = db.Column(db.String(255))
     feedback = db.Column(db.String(1000))
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     pitch_id = db.Column(db.Integer, db.ForeignKey("pitchs.id"))
