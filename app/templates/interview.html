@@ -6,9 +6,11 @@
 {% if interview_pitch %}
 {% for pitch in interview_pitch %}
 
-<p>{{pitch.body}}</p>
-<p>By:{{pitch.post}}</p>
-<p>{{pitch.date_posted}}</p>
+<div class="card">
+  <p>{{pitch.body}}</p>
+  <p>By:{{pitch.post}}</p>
+  <p>{{pitch.date_posted}}</p>
+</div>
 
 {% endfor %}
 <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
@@ -20,4 +22,22 @@
 <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
 {% endif %}
 
+<h3>Feedback</h3>
+{% for feedback  in feed_back %}
+{{feedback.title}}
+By:{{ feedback.feedback }}
+
+{% endfor %}
+
+<style>
+.card{
+    padding: 10px;
+    padding-top: 0;
+    border: 1px solid black;
+    box-shadow: -1px 1px 16px -1px rgba(0, 0, 0, 0.75);
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 1s;
+  }
+</style>
 {% endblock%}

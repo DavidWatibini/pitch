@@ -13,9 +13,7 @@ def index():
     '''
     title = 'Pitcher'
 
-    index=Pitch.query.all()
-
-    return render_template('index.html', title = title, index = index)
+    return render_template('index.html', title = title)
 
 # post pitch
 @main.route('/new_pitch', methods = ['GET','POST'])
@@ -32,14 +30,14 @@ def new_pitch():
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
-
+    index=Pitch.query.all()
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    return render_template("profile/profile.html", user = user,index = index)
 
 # feedback
-@main.route('/feedback/<int:id>', methods = ['GET','POST'])
+@main.route('/feedback', methods = ['GET','POST'])
 @login_required
 def new_feedback(id):
     form = FeedbackForm()

@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar navbar-inverse" style="background-color: #0B3948;" role="navigation">
   <div class="container-fluid">
     <br>
     <div class="navbar-header">
@@ -10,7 +10,7 @@
       </button>
       <a class="navbar-brand" href="/"> PITCHER</a>
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" style="background-color: #0B3948;">
       {% if current_user.is_authenticated %}
       <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
       <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
@@ -18,7 +18,7 @@
       <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
       {%endif%}
     </ul>
-    <div class="navbar-collapse collapse">
+    <div class="navbar-collapse collapse" style="background-color: #0B3948;">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">HOME</a></li>
         <li><a href="/interview">INTERVIEW PITCH</a></li>

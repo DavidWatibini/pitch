@@ -2,28 +2,44 @@
 
 {% block content %}
 <div class="container">
-<div class="row">
-<!-- displaying  Username-->
-  <div class="col-md-4">
-    <h3> {{user.username| capitalize}} </h3>
+  <div class="row">
+    <!-- displaying  Username-->
+    <div class="col-md-10">
+      <h3> Hello {{user.username| capitalize}} these are the available pitches </h3>
 
-    <!--Displaying user bio-->
-    {% if user.bio %}
-      <p> {{user.bio}}</p>
-    {%else%}
-      <p> {{user.username| capitalize}} has no bio </p>
-    {% endif %}
-  </div>
+      <!--Displaying user piches-->
+      {% for pitch in index %}
+      <div class="card">
+        <h3>Category: {{pitch.category}}</h3>
+        <h3>{{pitch.body}}</H3>
+        <p>By:{{pitch.post}}</p>
+        <p>Posted at {{pitch.date_posted}}</p>
+        <p><a href="/feedback">leave feedback</a></p>
+      </div>
+      {% endfor %}
+    </div>
 
-  <!--Display profile photo-->
-  <div class="col-md-4">
+    <!--Display profile photo-->
+    <div class="col-md-2">
 
-    {% if user.profile_pic_path %}
-    <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-    {%else%}
-    <p>No profile picture</p>
-    {% endif %}
+      {% if user.profile_pic_path %}
+      <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+      {%else%}
+      <p>No profile picture</p>
+      {% endif %}
+    </div>
   </div>
 </div>
-</div>
+
+<style>
+  .card {
+    padding: 10px;
+    padding-top: 0;
+    border: 1px solid black;
+    box-shadow: -1px 1px 16px -1px rgba(0, 0, 0, 0.75);
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 1s;
+  }
+</style>
 {% endblock %}
