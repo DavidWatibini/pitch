@@ -42,7 +42,7 @@ def profile(uname):
 def new_feedback(id):
     form = FeedbackForm()
     pitch = Pitch.query.get(id)
-    if fom.validate_on_submit():
+    if form.validate_on_submit():
         feedback = Feedback(title=form.title.data,feedback=form.feedback.data, pitch=pitch)
         db.session.add(feedback)
         db.session.commit()
@@ -72,7 +72,7 @@ def stand():
     return render_template('stand_up_comedy.html', stand_Up = stand_Up)
 
 # PROMOTION
-@main.route('/promotion', methods = ['GET','POST'])
+@main.route('/promotion', methods = ['GET','POST'])z
 @login_required
 def promotion():
     promotion_pitch=Pitch.query.filter_by(category="PROMOTION")
