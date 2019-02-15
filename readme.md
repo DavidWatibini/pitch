@@ -70,8 +70,8 @@ or just use this
 
 | Behavior        | Result |
 | ------------- |:----:|
-| User sign-up's | User gets an Email and is prompted to login on login page |
-| User logins | once is_authenticated home page is displayed|
+| User sign-up | User gets an Email and is prompted to login on login page |
+| User logins | once user is authenticated home page is displayed|
 | User Clicks on a category | Category page is displayed|
 | User clicks on add a pitch | Pitch forms are displayed|
 | User clicks on pitch button | pitch is added to list of pitches and is displayed on users profile|
